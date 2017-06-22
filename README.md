@@ -11,16 +11,13 @@ $ npm start
 ```
 
 API
-===
-
+---
 Create
-------
 ```
 http://<server>/<alias>
 ```
 
 Fetch
------
 ```
 http://<server>/create?url=<url>[&alias=<alias>]
 ```
