@@ -1,4 +1,3 @@
-
 USS ![Build](https://img.shields.io/travis/cuhsat/uss.svg)
 ===
 URL Shortener Service.
