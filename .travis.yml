@@ -12,6 +12,6 @@ node_js:
 services:
   - redis-server
 script:
-  - npm start
-  - curl -X POST "http://localhost/create?alias=test&url=hello"
-  - curl -v "http://localhost/test"
+  - npm start 8080
+  - curl -X POST "http://localhost:8080/create?alias=test&url=hello"
+  - curl -v "http://localhost:8080/test"
