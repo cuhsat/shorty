@@ -94,7 +94,7 @@ try {
     fetchUrl(redis, request, response);
   });
 
-  var server = app.listen(config.server);
+  var server = app.listen(process.argv[2] || config.server);
 
   console.log('Ready');
 } catch (error) {
