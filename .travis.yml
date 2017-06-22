@@ -11,3 +11,7 @@ node_js:
   - "iojs"
 services:
   - redis-server
+script:
+  - npm start
+  - curl -X POST "http://localhost/create?alias=test&url=hello"
+  - curl -v "http://localhost/test"
