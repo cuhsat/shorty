@@ -1,8 +1,6 @@
-USS ![Build](https://img.shields.io/travis/cuhsat/uss.svg)
-===
-URL Shortener Service.
-
-A very basic URL shortener service using a Base36 alphabet.
+Shorty ![Build](https://img.shields.io/travis/cuhsat/shorty.svg)
+======
+A very basic URL shortener using a Base62 alphabet.
 
 Usage
 -----
@@ -10,16 +8,17 @@ Usage
 $ npm start
 ```
 
-API
----
-Create
-```
-http://<server>/<alias>
-```
+REST API
+--------
+The RESTful API is specified in [API.raml](api.raml).
 
-Fetch
+Examples
+--------
 ```
-http://<server>/create?url=<url>[&alias=<alias>]
+POST http://localhost/create?url=xyz&alias=test
+```
+```
+GET http://localhost/test
 ```
 
 License

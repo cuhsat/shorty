@@ -11,7 +11,7 @@ node_js:
   - "iojs"
 services:
   - redis-server
+before_script:
+  - echo "{\"port\":8080,\"redis\":6379}" > config.json
 script:
-  - npm start 8080 & sleep 30
-  - curl -X POST "http://localhost:8080/create?alias=test&url=hello"
-  - curl -v "http://localhost:8080/test"
+  - npm start & sleep 30

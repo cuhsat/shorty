@@ -1,12 +1,13 @@
 {
-  "name": "uss",
-  "version": "0.1.0",
-  "homepage": "https://github.com/cuhsat/uss",
+  "name": "shorty",
+  "version": "0.2.0",
+  "homepage": "https://github.com/cuhsat/shorty",
   "repository": {
     "type": "git",
-    "url": "https://github.com/cuhsat/uss.git"
+    "url": "https://github.com/cuhsat/shorty.git"
   },
   "dependencies": {
+    "base62": "~1.2",
     "express": "~4.15",
     "redis": "~2.7"
   },
@@ -14,9 +15,9 @@
     "node": "6.11.*"
   },
   "scripts": {
-    "start": "node uss.js",
-    "test": "bash test.sh"
+    "start": "node app.js"
   },
   "license": "MIT",
   "private": true
 }
+

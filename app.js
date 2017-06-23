@@ -20,19 +20,14 @@
  * FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER
  * DEALINGS IN THE SOFTWARE.
  */
+var base62  = require('base62');
 var express = require('express');
-var redis = require('redis');
-
-var config = {
-  "server": 80,
-  "redis": 6379
-};
+var redis   = require('redis');
+var config  = require('./app.json');
 
 function findKey(key, redis, callback, index) {
-  if (key) {
-    callback(key.toLowerCase());
-  } else {
-    key = index.toString(36);
+  if (!key) {
+    key = base62.encode(index);
 
     redis.EXISTS(key, function exists(error, exists) {
       if (exists === 1) {
@@ -41,6 +36,8 @@ function findKey(key, redis, callback, index) {
         callback(key);
       }
     });
+  } else {
+    callback(key);
   }
 }
 
@@ -70,13 +67,13 @@ function createUrl(redis, request, response) {
 function fetchUrl(redis, request, response) {
   var key = request.params.alias || '';
 
-  redis.GET(key.toLowerCase(), function get(error, value) {
+  redis.GET(key, function get(error, value) {
     if (error) {
       response.status(500).send();
     } else if (!value) {
       response.status(404).send();
     } else {
-      response.redirect(value);
+      response.redirect(301, value);
     }
   });
 }
@@ -94,7 +91,7 @@ try {
     fetchUrl(redis, request, response);
   });
 
-  var server = app.listen(process.argv[2] || config.server);
+  var server = app.listen(config.port);
 
   console.log('Ready');
 } catch (error) {

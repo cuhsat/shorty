@@ -1,0 +1,38 @@
+#%RAML 1.0
+title: Shorty
+mediaType: application/text
+/create:
+  description: Create an alias for the URL
+  queryParameters:
+    url:
+      description: The URL
+      type: string
+      required: true
+    alias:
+      description: The alias of the URL
+      type: string
+  post:
+    responses:
+      200:
+        description: Alias created
+        body: Created {alias}
+      200:
+        description: Alias not available
+        body: Alias not available
+      500:
+        description: Internal Server Error
+/{alias}:
+  description: Fetch a URL by the alias
+  uriParameters:
+    alias:
+      description: The alias of the URL
+      type: string
+      minLength: 1
+  get:
+    responses:
+      302:
+        description: Alias found
+      404:
+        description: Alias not found
+      500
+        description: Internal Server Error
