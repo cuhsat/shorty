@@ -83,7 +83,7 @@ try {
 
   var redis = redis.createClient(config.redis);
 
-  app.post(/^create(\..+)?$/', function post(request, response) {
+  app.post(/^create(\..+)?$/, function post(request, response) {
     createUrl(redis, request, response);
   });
 
