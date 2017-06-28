@@ -23,7 +23,7 @@
 var base62  = require('base62');
 var express = require('express');
 var redis   = require('redis');
-var config  = require('./app.json');
+var config  = require('./config.json');
 
 function findKey(key, redis, callback, index) {
   if (!key) {
@@ -56,7 +56,7 @@ function createUrl(redis, request, response) {
           if (error) {
             response.status(500).send();
           } else {
-            response.status(200).send("Created " + key);
+            response.status(200).send("Created alias " + key);
           }
         });
       }
@@ -83,7 +83,7 @@ try {
 
   var redis = redis.createClient(config.redis);
 
-  app.post('/create', function post(request, response) {
+  app.post(/^create(\..+)?$/', function post(request, response) {
     createUrl(redis, request, response);
   });
 

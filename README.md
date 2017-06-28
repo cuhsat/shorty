@@ -1,6 +1,6 @@
 Shorty ![Build](https://img.shields.io/travis/cuhsat/shorty.svg)
 ======
-A very basic URL shortener using a restful [API](api.raml).
+A TinyURL like URL shortener using a restful [API](api.raml).
 
 Usage
 -----

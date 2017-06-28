@@ -12,6 +12,6 @@ node_js:
 services:
   - redis-server
 before_script:
-  - echo "{\"port\":8080,\"redis\":6379}" > app.json
+  - echo "{\"port\":8080,\"redis\":6379}" > config.json
 script:
   - npm start & sleep 30
