@@ -41,7 +41,7 @@ function findKey(key, redis, callback, index) {
   }
 }
 
-function createUrl(redis, request, response) {
+function setUrl(redis, request, response) {
   var key = request.query.alias;
   var url = request.query.url || '';
 
@@ -64,7 +64,7 @@ function createUrl(redis, request, response) {
   }, 0);
 }
 
-function fetchUrl(redis, request, response) {
+function getUrl(redis, request, response) {
   var key = request.params.alias || '';
 
   redis.GET(key, function get(error, value) {
@@ -80,15 +80,14 @@ function fetchUrl(redis, request, response) {
 
 try {
   var app = express();
-
-  var redis = redis.createClient(config.redis);
+  var redis = redis.createClient(process.env.REDIS_URL || config.redis);
 
   app.post(/^create(\..+)?$/, function post(request, response) {
-    createUrl(redis, request, response);
+    setUrl(redis, request, response);
   });
 
   app.get('/:alias', function get(request, response) {
-    fetchUrl(redis, request, response);
+    getUrl(redis, request, response);
   });
 
   var server = app.listen(config.port);

@@ -1,6 +1,6 @@
 {
   "name": "shorty",
-  "version": "0.2.1",
+  "version": "0.2.2",
   "homepage": "https://github.com/cuhsat/shorty",
   "repository": {
     "type": "git",
@@ -8,14 +8,14 @@
   },
   "dependencies": {
     "base62": "~1.2",
-    "express": "~4.15",
-    "redis": "~2.7"
+    "express": "~4.16",
+    "redis": "~2.8"
   },
   "engines": {
-    "node": "6.11.*"
+    "node": "8.7.*"
   },
   "scripts": {
-    "start": "node start.js"
+    "start": "node shorty.js"
   },
   "license": "MIT",
   "private": true

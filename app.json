@@ -1,0 +1,12 @@
+{
+  "name": "Shorty",
+  "repository": "https://github.com/cuhsat/shorty",
+  "buildpacks": [
+    {
+      "url": "heroku/nodejs"
+    }
+  ],
+  "addons": [
+    "heroku-redis:hobby-dev"
+  ]
+}
