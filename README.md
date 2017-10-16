@@ -8,8 +8,10 @@ Usage
 $ npm start
 ```
 
-> This service can easily be deployed to Heroku by clicking
-> [here](https://heroku.com/deploy?template=https://github.com/cuhsat/shorty).
+Heroku
+------
+This service can easily be deployed to Heroku by clicking
+[here](https://heroku.com/deploy?template=https://github.com/cuhsat/shorty).
 
 License
 =======
